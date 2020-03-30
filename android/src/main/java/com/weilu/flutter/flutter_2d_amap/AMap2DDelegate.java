@@ -91,10 +91,12 @@ public class AMap2DDelegate implements PluginRegistry.RequestPermissionsResultLi
                     permissionGranted = false;
                 }
             }
-            if (permissionGranted) {
+            if (mRequestPermission != null) {
+              if (permissionGranted) {
                 mRequestPermission.onRequestPermissionSuccess();
-            } else {
+              } else {
                 mRequestPermission.onRequestPermissionFailure();
+              }
             }
             return true;
         } else {
